@@ -1,0 +1,12 @@
+<%= form_with model: quote, html: { class: "quote form" } do |f| %>
+  <% if quote.errors.any? %>
+    <div class="error-message">
+      <%= quote.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name, input_html: { autofocus: true } %>
+  
+  <%= f.submit cta %>
+<% end %>

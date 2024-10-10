@@ -1,0 +1,17 @@
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    command: bin/dev
+    links:
+      - chrome-server
+    tty: true
+  chrome-server:
+    image: selenium/standalone-chrome:129.0
+    ports:
+      - "7900:7900"

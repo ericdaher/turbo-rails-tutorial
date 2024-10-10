@@ -1,25 +1,21 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 # turbo-rails-tutorial
+
+Hotwire tutorial from https://www.hotrails.dev/.
+
+The application is containerized. Just run:
+
+```
+docker compose build
+docker compose up
+```
+
+and everything should be working.
+
+The application has system tests; that's what the `chrome-server` service is for.
+You can check the tests running with:
+
+```
+docker compose up chrome-server -d 
+# Log in localhost:7900 with password 'secret'
+docker compose run web bin/rails test:system
+```
