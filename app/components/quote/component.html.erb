@@ -1,0 +1,12 @@
+<%= turbo_frame_tag @quote do %>
+  <div class="quote w-full bg-white rounded flex p-4 mb-4 shadow-md">
+    <%= link_to @quote.name, quote_path(@quote), class: 'inline-block w-10/12', data: { turbo_frame: '_top' } %>
+    <div class="quote__actions w-2/12 flex gap-2">
+      <%= button_to "Delete",
+                    quote_path(@quote),
+                    method: :delete %>
+      <%= link_to "Edit",
+                  edit_quote_path(@quote) %>
+    </div>
+  </div>
+<% end %>

@@ -1,12 +1,11 @@
-<%= form_with model: quote, html: { class: "quote form" } do |f| %>
-  <% if quote.errors.any? %>
-    <div class="error-message">
-      <%= quote.errors.full_messages.to_sentence.capitalize %>
+<%= turbo_frame_tag @quote do %>
+  <%= form_with model: quote, html: { class: "quote form bg-white rounded-md mb-4 shadow-md" } do |f| %>
+    <div class="flex p-2">
+      <%= f.label :name, "Name", class: "hidden" %>
+      <%= f.text_field :name, autofocus: true, placeholder: 'Name of your quote', class: "w-10/12 rounded-md" %>
+      
+      <%= link_to "Cancel", quotes_path, class: "w-1/12" %>
+      <%= f.submit cta, class: "w-1/12" %>
     </div>
   <% end %>
-
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name, input_html: { autofocus: true } %>
-  
-  <%= f.submit cta %>
 <% end %>
